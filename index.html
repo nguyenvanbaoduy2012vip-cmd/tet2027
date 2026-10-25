@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17070b">
+<meta name="description" content="Giao Thừa 2027 — đếm ngược, nhật ký năm mới và tạo thiệp chúc Tết.">
+<title>Giao Thừa 2027 — BDUY.DEV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12070d;--panel:rgba(39,15,25,.76);--line:rgba(255,222,170,.15);--text:#fff6e9;--muted:#c2a9ad;--gold:#ffd27b;--gold2:#ffecb8;--red:#ff6b69;--green:#9ce0b0;--shadow:0 24px 80px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;min-height:100vh;color:var(--text);font-family:"Be Vietnam Pro",sans-serif;background:#12070d;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-4;background:radial-gradient(ellipse at 15% 12%,#70202d88,transparent 34%),radial-gradient(ellipse at 88% 14%,#8a4d1680,transparent 28%),radial-gradient(ellipse at 50% 100%,#43112d99,transparent 45%),linear-gradient(135deg,#12070d,#24101a 55%,#10121d)}
+#ambience{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}.particle{position:absolute;top:-40px;left:var(--x);font-size:var(--s);opacity:var(--o);filter:drop-shadow(0 0 8px #ffce70);animation:fall var(--d) linear var(--delay) infinite;will-change:transform}.dust{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe7a2;left:var(--x);top:var(--y);box-shadow:0 0 10px 2px #ffc95b;animation:glow var(--d) ease-in-out var(--delay) infinite}
+@keyframes fall{0%{transform:translate3d(0,-8vh,0) rotate(0deg);opacity:0}10%{opacity:var(--o)}90%{opacity:var(--o)}100%{transform:translate3d(var(--drift),112vh,0) rotate(330deg);opacity:0}}
+@keyframes glow{0%,100%{opacity:.12;transform:scale(.7)}50%{opacity:.9;transform:scale(1.6)}}
+.wrap{width:min(1160px,calc(100% - 34px));margin:auto}.topbar{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12;position:relative;z-index:8}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}.brandmark{width:42px;height:42px;display:grid;place-items:center;border:1px solid #ffd27b88;border-radius:14px;color:var(--gold);background:#ffd27b12;font-size:23px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.24em;margin-top:4px}
+.top-actions{display:flex;align-items:center;gap:10px}.status,.toggle{display:flex;align-items:center;gap:8px;color:#f1dfe0;font-size:11px;border:1px solid var(--line);border-radius:99px;padding:9px 12px;background:#ffffff08}.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}button{font:inherit;cursor:pointer}.toggle{color:var(--gold2);cursor:pointer;user-select:none}.toggle input{accent-color:#ffd27b;width:15px;height:15px}
+.hero{text-align:center;padding:68px 0 28px;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:800}.eyebrow:before,.eyebrow:after{content:"";height:1px;width:27px;background:linear-gradient(90deg,transparent,var(--gold))}
+h1{font-family:"Playfair Display",serif;font-size:clamp(46px,8vw,88px);line-height:1.04;letter-spacing:-.05em;margin:20px 0 14px}h1 span{background:linear-gradient(110deg,#fff6dc,#ffd27b 50%,#ff8f75);-webkit-background-clip:text;background-clip:text;color:transparent}.subtitle{color:#d4bec3;font-size:clamp(13px,2vw,16px);line-height:1.9;max-width:650px;margin:auto}.ornament{margin:26px auto 0;color:var(--gold);letter-spacing:12px}
+.pillnav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:22px auto 30px}.pillnav a{border:1px solid var(--line);background:#ffffff06;padding:10px 14px;border-radius:999px;font-size:11px;color:#ead8d8;transition:.2s}.pillnav a:hover{background:#ffd27b17;border-color:#ffd27b66;color:var(--gold2)}
+.countdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 34px}.count-card{position:relative;overflow:hidden;padding:27px;border:1px solid var(--line);border-radius:25px;background:linear-gradient(145deg,#ffffff0d,#ffffff02),var(--panel);box-shadow:var(--shadow);backdrop-filter:blur(18px);transition:transform .25s,border-color .25s}.count-card:hover{transform:translateY(-3px);border-color:#ffd27b66}.count-card:before{content:"";position:absolute;top:-100px;right:-75px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,#ff6b6925,transparent 70%);pointer-events:none}.count-card.lunar:before{background:radial-gradient(circle,#ffd27b2c,transparent 70%)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.event-icon{width:47px;height:47px;border-radius:16px;display:grid;place-items:center;color:#ffb2a8;background:#ff6b6919;border:1px solid #ff6b6935;font-size:23px}.lunar .event-icon{color:var(--gold);background:#ffd27b12;border-color:#ffd27b33}.tag{font-size:9px;letter-spacing:.12em;padding:8px 10px;border-radius:99px;border:1px solid #ff6b6938;color:#ffb7ae;background:#ff6b690d}.lunar .tag{color:var(--gold);border-color:#ffd27b3d;background:#ffd27b0d}.kicker{margin-top:20px;color:var(--gold);font-size:9px;font-weight:800;letter-spacing:.2em}.card-title{font-size:22px;font-weight:800;margin:10px 0 7px;letter-spacing:-.03em}.date-line{color:var(--muted);font-size:11px}
+.timer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:25px 0 20px}.time-unit{text-align:center;min-width:0;padding:15px 3px 12px;border-radius:14px;border:1px solid #ffffff12;background:#05030a45}.time-number{font-variant-numeric:tabular-nums;font-size:clamp(24px,3vw,37px);font-weight:800;letter-spacing:-.06em;line-height:1.1}.time-label{margin-top:8px;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#bba8b2}.card-bottom{border-top:1px solid #ffffff13;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:#cdbac4;font-size:10px}.card-bottom strong{color:#fff0cf;font-weight:700}.progress-wrap{margin-top:16px}.progress-meta{display:flex;justify-content:space-between;color:#b5a0ac;font-size:9px;margin-bottom:8px}.progress{height:3px;border-radius:9px;background:#ffffff14;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff6b69,#ffd27b);border-radius:9px;transition:width .5s}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:54px 0 18px}.section-head h2{font-family:"Playfair Display",serif;font-size:clamp(23px,4vw,31px);margin:0 0 7px}.section-head p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}.year-chip{font-size:10px;color:var(--gold);padding:8px 12px;border:1px solid #ffd27b35;border-radius:10px;background:#ffd27b0b;white-space:nowrap}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:38px}.feature{padding:20px;border:1px solid var(--line);border-radius:18px;background:#ffffff04}.feature .emoji{font-size:22px}.feature h3{font-size:13px;margin:13px 0 7px}.feature p{font-size:11px;color:var(--muted);line-height:1.8;margin:0}
+.panel{border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#ffffff0b,#ffffff03);padding:24px;box-shadow:var(--shadow);margin-bottom:28px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.panel-head h2{font-family:"Playfair Display",serif;font-size:25px;margin:0}.panel-head p{font-size:11px;color:var(--muted);margin:6px 0 0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:#e9d5d8;font-weight:600}.field input,.field textarea,.field select{width:100%;border:1px solid #ffffff1c;border-radius:12px;background:#100911;color:var(--text);padding:12px 13px;font:inherit;font-size:12px;outline:none}.field textarea{min-height:90px;resize:vertical;line-height:1.7}.field input:focus,.field textarea:focus,.field select:focus{border-color:#ffd27b88;box-shadow:0 0 0 3px #ffd27b12}.field select option{background:#1a1019}
+.btn{border:1px solid #ffd27b45;border-radius:12px;background:linear-gradient(135deg,#ffd27b,#f1a65d);color:#2b1011;font-weight:800;font-size:11px;padding:12px 16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}.btn.secondary{background:#ffffff08;color:#ffe9be;border-color:#ffffff20}.btn.danger{background:#ff6b6914;color:#ffb7ae;border-color:#ff6b6940}.button-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.small-note{font-size:10px;color:#b6a0ac;line-height:1.7;margin:12px 0 0}
+.diary-list{display:grid;gap:10px;margin-top:18px}.diary-entry{border:1px solid #ffffff12;border-radius:15px;background:#08050b50;padding:15px}.diary-entry-top{display:flex;justify-content:space-between;gap:12px;align-items:start}.diary-entry h3{font-size:13px;margin:0 0 6px}.diary-entry time{font-size:9px;color:var(--gold)}.diary-entry p{font-size:11px;color:#d2bdc5;line-height:1.8;white-space:pre-wrap;margin:8px 0 0;overflow-wrap:anywhere}.empty{border:1px dashed #ffffff24;border-radius:14px;padding:22px;text-align:center;color:var(--muted);font-size:11px;line-height:1.8}
+.card-maker-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.85fr);gap:22px;align-items:start}.greeting-card{--card-a:#7d1429;--card-b:#3a0d20;position:relative;overflow:hidden;min-height:360px;border-radius:22px;padding:27px 23px;text-align:center;background:radial-gradient(circle at 50% 0%,#ffcf7650,transparent 42%),linear-gradient(145deg,var(--card-a),var(--card-b));border:1px solid #ffdf9a5e;box-shadow:0 20px 55px #0005;display:flex;flex-direction:column;align-items:center;justify-content:center;isolation:isolate}.greeting-card:before,.greeting-card:after{content:"";position:absolute;inset:12px;border:1px solid #ffe3a766;border-radius:15px;pointer-events:none;z-index:-1}.greeting-card:after{inset:19px;border-style:dashed;opacity:.5}.card-symbol{font-size:38px;filter:drop-shadow(0 4px 14px #ffc74c77);margin-bottom:8px}.greeting-card .card-small{font-size:9px;letter-spacing:.25em;color:#ffe2a5;font-weight:800}.greeting-card h3{font-family:"Playfair Display",serif;font-size:clamp(30px,4vw,42px);line-height:1.12;margin:13px 0;color:#fff0c9;text-shadow:0 3px 20px #4a0718}.greeting-card .greet-message{font-size:12px;line-height:1.9;max-width:340px;color:#fff4e6;white-space:pre-wrap;overflow-wrap:anywhere}.greeting-card .to-from{font-size:10px;color:#ffe4b6;margin-top:18px;line-height:1.8}.greeting-card .card-year{font-family:"Playfair Display",serif;font-size:24px;color:#ffd27b;margin-top:12px;letter-spacing:.15em}
+footer{border-top:1px solid #ffffff12;padding:24px 0 30px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#a28d9a;font-size:10px}.footer-brand{color:#f2d9d0;letter-spacing:.16em;font-weight:800}.footer-brand span{color:var(--gold)}
+#intro{position:fixed;inset:0;z-index:1000;background:radial-gradient(ellipse at 50% 60%,#65152b,#16070e 70%);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .65s,visibility .65s}#intro.done{opacity:0;visibility:hidden;pointer-events:none}.intro-glow{position:absolute;width:280px;height:280px;border-radius:50%;background:#ffd27b18;filter:blur(25px)}.horse-track{position:absolute;left:-45%;top:43%;width:48%;min-width:260px;max-width:600px;animation:horseRun 2.25s cubic-bezier(.2,.7,.2,1) .15s forwards}.horse-track svg{width:100%;height:auto;filter:drop-shadow(0 0 22px #ffc95b88)}.horse-caption{position:absolute;bottom:19%;text-align:center;opacity:0;animation:captionIn .8s ease 1.2s forwards}.horse-caption strong{font-family:"Playfair Display",serif;font-size:clamp(25px,6vw,44px);display:block;color:#ffe4a2}.horse-caption span{display:block;color:#d8b9bf;font-size:10px;letter-spacing:.3em;margin-top:10px}@keyframes horseRun{0%{left:-48%;transform:translateY(0) scale(.8)}20%{transform:translateY(-12px) scale(.95)}40%{transform:translateY(8px) scale(1.02)}60%{transform:translateY(-8px) scale(1.06)}80%{transform:translateY(3px) scale(1.08)}100%{left:110%;transform:translateY(0) scale(1.1)}}@keyframes captionIn{to{opacity:1;transform:translateY(-5px)}}.intro-skip{position:absolute;right:18px;top:18px;background:#ffffff0c;border:1px solid #ffffff25;color:#ffe7bd;border-radius:99px;padding:9px 13px;font-size:10px}
+#celebration{position:fixed;inset:0;z-index:900;display:none;align-items:center;justify-content:center;text-align:center;padding:24px;background:#14040deF;overflow:hidden}#celebration.show{display:flex}#fireworks{position:absolute;inset:0;width:100%;height:100%}.celebrate-content{position:relative;z-index:1;max-width:700px}.celebrate-content .big-emoji{font-size:54px}.celebrate-content h2{font-family:"Playfair Display",serif;font-size:clamp(40px,9vw,82px);line-height:1;margin:15px 0;color:#ffdf91}.celebrate-content p{font-size:15px;line-height:1.9;color:#fff0e0}.celebrate-content button{margin-top:14px}
+@media(max-width:760px){.wrap{width:calc(100% - 24px)}.topbar{height:68px}.brand{font-size:12px}.brandmark{width:36px;height:36px}.status{display:none}.hero{padding-top:48px}.countdown-grid{grid-template-columns:1fr}.count-card{padding:22px}.feature-grid{grid-template-columns:1fr}.section-head{margin-top:40px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card-maker-layout{grid-template-columns:1fr}.panel{padding:17px}.panel-head h2{font-size:22px}.greeting-card{min-height:330px}footer{align-items:flex-start;flex-direction:column}.horse-track{width:65%;min-width:250px;top:39%}.horse-caption{bottom:20%}.pillnav{gap:6px}.pillnav a{font-size:10px;padding:9px 11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}#intro{display:none}}
+</style>
+</head>
+<body>
+<div id="ambience" aria-hidden="true"></div>
+<div id="intro" aria-label="Mở đầu năm mới">
+ <button class="intro-skip" id="skipIntro" type="button">Bỏ qua ✕</button><div class="intro-glow"></div>
+ <div class="horse-track" aria-hidden="true">
+  <svg viewBox="0 0 560 310" xmlns="http://www.w3.org/2000/svg">
+   <defs><linearGradient id="horseGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b0"/><stop offset=".48" stop-color="#ffbf50"/><stop offset="1" stop-color="#b74b27"/></linearGradient></defs>
+   <g fill="url(#horseGold)" stroke="#ffe5a0" stroke-width="2" stroke-linejoin="round">
+    <path d="M180 105 Q144 76 125 43 Q122 32 133 39 Q159 64 189 75 L227 94 Q267 69 310 82 L361 99 Q388 91 406 62 L427 35 Q439 27 438 44 L430 76 Q453 67 469 43 Q483 31 481 51 L464 87 Q450 113 419 124 L392 142 Q374 164 343 170 L293 166 Q270 190 242 202 L225 250 Q221 271 207 268 L187 267 Q177 261 193 252 L205 211 L198 175 Q176 193 158 223 L150 258 Q148 273 133 270 L114 268 Q105 262 121 252 L129 210 Q129 179 153 150 L180 105Z"/>
+    <path d="M216 99 Q205 69 224 49 L241 18 Q246 8 251 22 L251 52 Q270 26 284 18 Q293 14 289 29 L270 65 L261 96Z"/>
+    <path d="M403 65 Q421 46 435 18 Q440 9 446 21 L443 52 L428 82Z"/>
+    <path d="M187 78 Q163 42 144 25 Q134 16 145 12 Q170 20 201 56 L224 83Z"/>
+    <path d="M338 163 Q355 185 376 202 L404 240 Q411 251 399 257 L381 255 L358 223 L321 194Z"/>
+    <path d="M278 166 Q294 193 290 222 L285 254 Q283 268 268 267 L250 264 Q242 258 260 249 L262 215 L244 184Z"/>
+   </g>
+   <path d="M194 91 Q163 79 143 54 M224 98 Q242 80 261 96 M406 76 Q420 65 427 47" fill="none" stroke="#8b351f" stroke-width="5" stroke-linecap="round"/>
+   <circle cx="418" cy="103" r="4" fill="#3a1016"/><path d="M177 110 Q147 134 134 159" fill="none" stroke="#ffe5a0" stroke-width="3" stroke-linecap="round"/>
+   <g fill="#ffd777"><circle cx="85" cy="80" r="3"/><circle cx="62" cy="145" r="2"/><circle cx="112" cy="205" r="4"/><circle cx="485" cy="133" r="3"/><circle cx="463" cy="190" r="2"/><path d="M68 98l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/></g>
+  </svg>
+ </div>
+ <div class="horse-caption"><strong>Chào đón 2027</strong><span>MAY MẮN · BÌNH AN · KHỞI ĐẦU MỚI</span></div>
+</div>
+<div id="celebration" role="dialog" aria-modal="true" aria-label="Chúc mừng năm mới"><canvas id="fireworks"></canvas><div class="celebrate-content"><div class="big-emoji">🎆 🧧 🎊</div><h2>Chúc Mừng<br>Năm Mới 2027!</h2><p>Chúc bạn và gia đình một năm bình an, sức khỏe dồi dào, vạn sự như ý và luôn có thật nhiều niềm vui.</p><button class="btn" id="closeCelebration">Đón năm mới ✨</button></div></div>
+<header class="wrap topbar">
+ <a class="brand" href="#" aria-label="Giao Thừa 2027"><span class="brandmark">✺</span><span>GIAO THỪA <small>COUNTDOWN EXPERIENCE</small></span></a>
+ <div class="top-actions"><div class="status"><span class="pulse"></span><span id="liveStatus">ĐANG ĐẾM NGƯỢC</span></div><label class="toggle" title="Bật hoặc tắt hiệu ứng nền"><input type="checkbox" id="effectsToggle" checked> Hiệu ứng</label></div>
+</header>
+<main class="wrap">
+ <section class="hero"><div class="eyebrow">Khởi đầu một chương mới</div><h1>Chào năm <span>2027</span></h1><p class="subtitle">Khép lại những điều đã qua, đón chờ hành trình mới với hy vọng, may mắn và thật nhiều khởi đầu rực rỡ.</p><div class="ornament">✦ ❀ ✦</div></section>
+ <nav class="pillnav" aria-label="Điều hướng"><a href="#countdown">⏳ Đếm ngược</a><a href="#wishes">🧧 Thiệp chúc Tết</a><a href="#diary">📔 Nhật ký</a></nav>
+ <section id="countdown" class="countdown-grid" aria-label="Đếm ngược ngày lễ">
+  <article class="count-card" id="solarCard"><div class="card-top"><div class="event-icon">🎉</div><span class="tag">NEW YEAR · 2027</span></div><div class="kicker">01 / THE GLOBAL NEW YEAR</div><h2 class="card-title">Tết Dương lịch</h2><div class="date-line">📅 Thứ Sáu, 01 tháng 01, 2027</div><div class="timer" id="solarTimer"><div class="time-unit"><div class="time-number">000</div><div class="time-label">Ngày</div></div><div class="time-unit"><div class="time-number">00</div><div class="time-label">Giờ</div></div><div class="time-unit"><div class="time-number">00</div><div class="time-label">Phút</div></div><div class="time-unit"><div class="time-number">00</div><div class="time-label">Giây</div></div></div><div class="card-bottom"><span>◷ Thời khắc chuyển giao</span><strong id="solarRemaining">01.01.2027 · 00:00</strong></div><div class="progress-wrap"><div class="progress-meta"><span>HÀNH TRÌNH ĐẾN NĂM MỚI</span><span id="solarPercent">—</span></div><div class="progress"><span id="solarProgress"></span></div></div></article>
+  <article class="count-card lunar" id="lunarCard"><div class="card-top"><div class="event-icon">🌸</div><span class="tag">TẾT NGUYÊN ĐÁN</span></div><div class="kicker">02 / TẾT CỔ TRUYỀN</div><h2 class="card-title">Tết Âm lịch</h2><div class="date-line">📅 Thứ Bảy, 06 tháng 02, 2027</div><div class="timer" id="lunarTimer"><div class="time-unit"><div class="time-number">000</div><div class="time-label">Ngày</div></div><div class="time-unit"><div class="time-number">00</div><div class="time-label">Giờ</div></div><div class="time-unit"><div class="time-number">00</div><div class="time-label">Phút</div></div><div class="time-unit"><div class="time-number">00</div><div class="time-label">Giây</div></div></div><div class="card-bottom"><span>◷ Giao thừa năm Đinh Mùi</span><strong id="lunarRemaining">06.02.2027 · 00:00</strong></div><div class="progress-wrap"><div class="progress-meta"><span>HÀNH TRÌNH ĐẾN TẾT</span><span id="lunarPercent">—</span></div><div class="progress"><span id="lunarProgress"></span></div></div></article>
+ </section>
+ <section><div class="section-head"><div><h2>Mùa Tết, mùa đoàn viên</h2><p>Một chút lấp lánh cho những khoảnh khắc đáng nhớ.</p></div><span class="year-chip">2026 → 2027</span></div><div class="feature-grid"><article class="feature"><div class="emoji">🌅</div><h3>Một khởi đầu mới</h3><p>Đặt mục tiêu, giữ những điều tích cực và bắt đầu hành trình 2027 theo cách của riêng bạn.</p></article><article class="feature"><div class="emoji">🏮</div><h3>Sum vầy & đoàn viên</h3><p>Tết là dịp trở về, dành thời gian cho gia đình và trao nhau những lời chúc chân thành.</p></article><article class="feature"><div class="emoji">✨</div><h3>An khang thịnh vượng</h3><p>Mong một năm bình an, nhiều sức khỏe, may mắn và những cơ hội tốt đẹp đang chờ phía trước.</p></article></div></section>
+ <section id="wishes"><div class="section-head"><div><h2>Thiệp Tết của riêng bạn</h2><p>Tạo một tấm thiệp mang lời chúc của bạn, tải ảnh PNG để gửi bạn bè và gia đình.</p></div><span class="year-chip">YOUR GREETING</span></div>
+  <div class="panel"><div class="card-maker-layout"><div><div class="form-grid">
+   <div class="field"><label for="sender">Tên người gửi</label><input id="sender" maxlength="35" placeholder="Ví dụ: Bảo Duy"></div>
+   <div class="field"><label for="receiver">Tên người nhận</label><input id="receiver" maxlength="35" placeholder="Ví dụ: Minh Anh"></div>
+   <div class="field"><label for="cardStyle">Mẫu thiệp</label><select id="cardStyle"><option value="red">Đỏ son truyền thống</option><option value="peach">Đào hồng dịu dàng</option><option value="gold">Hoàng kim sang trọng</option><option value="night">Đêm pháo hoa</option></select></div>
+   <div class="field"><label for="cardIcon">Họa tiết</label><select id="cardIcon"><option value="🧧">Bao lì xì</option><option value="🌸">Hoa đào</option><option value="🌼">Hoa mai</option><option value="🏮">Đèn lồng</option><option value="🐎">Năm con Ngựa</option></select></div>
+   <div class="field full"><label for="message">Lời chúc</label><textarea id="message" maxlength="260">Chúc bạn năm mới bình an, sức khỏe dồi dào, học tập và công việc thuận lợi, mọi điều như ý và luôn ngập tràn tiếng cười!</textarea></div>
+  </div><div class="button-row"><button class="btn" id="downloadCard">↓ Tải thiệp PNG</button><button class="btn secondary" id="randomWish">✦ Gợi ý lời chúc</button></div><p class="small-note">Thiệp được dựng ngay trong trình duyệt. Ảnh tải xuống không cần máy chủ hoặc tài khoản.</p></div>
+  <div class="greeting-card" id="greetingCard"><div class="card-symbol" id="previewIcon">🧧</div><div class="card-small">HAPPY LUNAR NEW YEAR</div><h3>Chúc Mừng<br>Năm Mới</h3><div class="greet-message" id="previewMessage">Chúc bạn năm mới bình an, sức khỏe dồi dào, học tập và công việc thuận lợi, mọi điều như ý và luôn ngập tràn tiếng cười!</div><div class="to-from" id="previewNames">Thân gửi: Bạn yêu quý<br>Người gửi: BDUY.DEV</div><div class="card-year">2027 ✦ ĐINH MÙI</div></div>
+  </div></div>
+ </section>
+ <section id="diary"><div class="section-head"><div><h2>Nhật ký năm mới</h2><p>Lưu lại điều bạn biết ơn, kỷ niệm đẹp và mục tiêu cho năm 2027.</p></div><span class="year-chip">PRIVATE · THIS DEVICE</span></div>
+  <div class="panel"><div class="panel-head"><div><h2>Ghi lại một khoảnh khắc</h2><p>Nhật ký lưu trên trình duyệt của thiết bị này bằng bộ nhớ cục bộ.</p></div><span style="font-size:26px">📔</span></div>
+   <form id="diaryForm"><div class="form-grid"><div class="field"><label for="diaryTitle">Tiêu đề</label><input id="diaryTitle" maxlength="70" placeholder="Một điều đáng nhớ hôm nay" required></div><div class="field"><label for="diaryMood">Tâm trạng</label><select id="diaryMood"><option>😊 Vui vẻ</option><option>🥰 Biết ơn</option><option>🌱 Hy vọng</option><option>😌 Bình yên</option><option>💪 Quyết tâm</option><option>🌧️ Hơi mệt</option></select></div><div class="field full"><label for="diaryText">Nội dung nhật ký</label><textarea id="diaryText" maxlength="3000" placeholder="Hôm nay mình muốn ghi nhớ điều gì?..." required></textarea></div></div><div class="button-row"><button class="btn" type="submit">＋ Lưu nhật ký</button><button class="btn secondary" type="button" id="exportDiary">↓ Xuất nhật ký .txt</button><button class="btn danger" type="button" id="clearDiary">Xóa tất cả</button></div></form>
+   <div class="diary-list" id="diaryList"><div class="empty">Chưa có ghi chép nào. Hãy bắt đầu lưu giữ những khoảnh khắc đầu tiên nhé ✨</div></div><p class="small-note">Lưu ý: dữ liệu nằm trên thiết bị/trình duyệt hiện tại. Xóa dữ liệu trang web hoặc đổi trình duyệt có thể làm mất nhật ký; hãy xuất bản sao nếu cần.</p>
+  </div>
+ </section>
+</main>
+<footer class="wrap"><div>Made for the moments that matter.</div><div class="footer-brand">BY <span>BDUY.DEV</span> · 2027</div></footer>
+<script>
+const $=id=>document.getElementById(id);
+const targets=[
+ {id:'solar',date:new Date(2027,0,1,0,0,0),start:new Date(2026,0,1,0,0,0)},
+ {id:'lunar',date:new Date(2027,1,6,0,0,0),start:new Date(2026,1,17,0,0,0)}
+];
+const pad=(n,len=2)=>String(n).padStart(len,'0');
+let celebrationShown=false;
+function updateCountdown(item){
+ const now=new Date(),diff=item.date-now,timer=$(item.id+'Timer');
+ if(diff<=0){
+  if(!timer.dataset.finished){timer.innerHTML='<div class="time-unit" style="grid-column:1/-1"><div class="time-number" style="font-size:22px">Chúc mừng năm mới!</div><div class="time-label">Happy New Year</div></div>';timer.dataset.finished='1';}
+  $(item.id+'Remaining').textContent='Đã đến thời khắc năm mới';$(item.id+'Progress').style.width='100%';$(item.id+'Percent').textContent='100%';return;
+ }
+ const sec=Math.floor(diff/1000),days=Math.floor(sec/86400),hours=Math.floor(sec%86400/3600),mins=Math.floor(sec%3600/60),secs=sec%60;
+ const vals=[String(days),pad(hours),pad(mins),pad(secs)];
+ timer.querySelectorAll('.time-number').forEach((el,i)=>{if(vals[i]!==undefined)el.textContent=vals[i]});
+ const total=item.date-item.start,elapsed=now-item.start,percent=Math.max(0,Math.min(100,elapsed/total*100));
+ $(item.id+'Progress').style.width=percent+'%';$(item.id+'Percent').textContent=percent.toFixed(1)+'%';
+ $(item.id+'Remaining').textContent=pad(item.date.getDate())+'.'+pad(item.date.getMonth()+1)+'.'+item.date.getFullYear()+' · 00:00';
+}
+function tick(){targets.forEach(updateCountdown);const allPast=targets.every(t=>Date.now()>=t.date);$('liveStatus').textContent=allPast?'CHÚC MỪNG NĂM MỚI':'ĐANG ĐẾM NGƯỢC';if(allPast&&!celebrationShown){celebrationShown=true;showCelebration()}}
+tick();setInterval(tick,1000);
+// Background ambience: few particles only; toggle reduces work on phones.
+const ambience=$('ambience');
+const flowers=['🌸','🌼','✿','❀','✦'];
+function buildAmbience(){
+ ambience.innerHTML='';
+ for(let i=0;i<15;i++){const p=document.createElement('span');p.className='particle';p.textContent=flowers[i%flowers.length];p.style.cssText=`--x:${Math.random()*100}%;--s:${10+Math.random()*12}px;--o:${.2+Math.random()*.45};--d:${15+Math.random()*20}s;--delay:${-Math.random()*25}s;--drift:${Math.random()*150-75}px`;ambience.appendChild(p)}
+ for(let i=0;i<18;i++){const d=document.createElement('span');d.className='dust';d.style.cssText=`--x:${Math.random()*100}%;--y:${Math.random()*100}%;--d:${3+Math.random()*5}s;--delay:${-Math.random()*6}s`;ambience.appendChild(d)}
+}
+buildAmbience();
+$('effectsToggle').addEventListener('change',e=>{if(e.target.checked){buildAmbience();ambience.style.display='block'}else{ambience.style.display='none';ambience.innerHTML=''}});
+function dismissIntro(){$('intro').classList.add('done')}
+$('skipIntro').addEventListener('click',dismissIntro);
+setTimeout(dismissIntro,3100);
+// Greeting card preview and PNG export using canvas, no external image service.
+const themes={red:['#8d1830','#390b20'],peach:['#b94f63','#57203d'],gold:['#75501a','#251321'],night:['#18254c','#160d2e']};
+function updateCard(){
+ const style=$('cardStyle').value,colors=themes[style];$('greetingCard').style.setProperty('--card-a',colors[0]);$('greetingCard').style.setProperty('--card-b',colors[1]);
+ $('previewIcon').textContent=$('cardIcon').value;$('previewMessage').textContent=$('message').value.trim()||'Chúc bạn một năm mới an vui, may mắn và nhiều điều tốt đẹp!';
+ const to=$('receiver').value.trim()||'Bạn yêu quý',from=$('sender').value.trim()||'BDUY.DEV';
+ $('previewNames').innerHTML='Thân gửi: '+escapeHTML(to)+'<br>Người gửi: '+escapeHTML(from);
+}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+['sender','receiver','cardStyle','cardIcon','message'].forEach(id=>$(id).addEventListener('input',updateCard));
+$('randomWish').addEventListener('click',()=>{const wishes=[
+'Chúc bạn năm mới vạn sự như ý, sức khỏe dồi dào, niềm vui nối tiếp niềm vui!',
+'Mong năm 2027 mang đến cho bạn thật nhiều cơ hội, những người tử tế và kỷ niệm tuyệt vời.',
+'Chúc gia đình mình luôn mạnh khỏe, bình an, sum vầy và tràn ngập tiếng cười.',
+'Năm mới, chúc bạn đủ bản lĩnh để theo đuổi ước mơ và đủ bình yên để tận hưởng hành trình.',
+'Chúc một năm mới phát tài phát lộc, học hành tiến bộ, mọi dự định đều thuận lợi!'
+];$('message').value=wishes[Math.floor(Math.random()*wishes.length)];updateCard()});
+$('downloadCard').addEventListener('click',()=>{
+ const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;const c=canvas.getContext('2d'),style=$('cardStyle').value,[a,b]=themes[style];
+ const grad=c.createLinearGradient(0,0,1080,1350);grad.addColorStop(0,a);grad.addColorStop(1,b);c.fillStyle=grad;c.fillRect(0,0,1080,1350);
+ const glow=c.createRadialGradient(540,150,20,540,150,650);glow.addColorStop(0,'#ffd27b45');glow.addColorStop(1,'#ffd27b00');c.fillStyle=glow;c.fillRect(0,0,1080,1350);
+ c.strokeStyle='#ffe3a777';c.lineWidth=3;c.strokeRect(38,38,1004,1274);c.setLineDash([8,10]);c.strokeRect(58,58,964,1234);c.setLineDash([]);
+ for(let i=0;i<36;i++){const x=(i*173+41)%1080,y=(i*257+79)%1350;c.fillStyle=i%2?'#ffdc8c88':'#fff1c477';c.beginPath();c.arc(x,y,2+(i%3),0,Math.PI*2);c.fill()}
+ c.textAlign='center';c.fillStyle='#ffe2a5';c.font='bold 27px sans-serif';c.fillText('HAPPY LUNAR NEW YEAR',540,190);
+ c.font='100px sans-serif';c.fillText($('cardIcon').value,540,340);
+ c.fillStyle='#fff0c9';c.font='bold 82px Georgia,serif';c.fillText('Chúc Mừng',540,475);c.fillText('Năm Mới',540,570);
+ const msg=$('message').value.trim()||'Chúc bạn một năm mới an vui, may mắn và nhiều điều tốt đẹp!';
+ c.fillStyle='#fff4e6';c.font='30px sans-serif';wrapCanvasText(c,msg,540,680,790,52);
+ c.fillStyle='#ffe4b6';c.font='26px sans-serif';c.fillText('Thân gửi: '+($('receiver').value.trim()||'Bạn yêu quý'),540,990);c.fillText('Người gửi: '+($('sender').value.trim()||'BDUY.DEV'),540,1040);
+ c.fillStyle='#ffd27b';c.font='bold 46px Georgia,serif';c.fillText('2027  ✦  ĐINH MÙI',540,1155);
+ const link=document.createElement('a');link.download='thiep-chuc-tet-2027.png';link.href=canvas.toDataURL('image/png');link.click();
+});
+function wrapCanvasText(ctx,text,x,y,maxWidth,lineHeight){const words=text.split(/\s+/);let line='',yy=y;for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,yy);line=word;yy+=lineHeight}else line=test}if(line)ctx.fillText(line,x,yy)}
+updateCard();
+// Diary local storage
+const STORAGE_KEY='bduy_giao_thua_2027_diary_v1';
+function getEntries(){try{const v=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');return Array.isArray(v)?v:[]}catch(e){return []}}
+function saveEntries(entries){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(entries));return true}catch(e){alert('Không thể lưu nhật ký. Có thể bộ nhớ trình duyệt đã đầy hoặc đang ở chế độ riêng tư.');return false}}
+function renderDiary(){
+ const entries=getEntries(),list=$('diaryList');list.innerHTML='';
+ if(!entries.length){list.innerHTML='<div class="empty">Chưa có ghi chép nào. Hãy bắt đầu lưu giữ những khoảnh khắc đầu tiên nhé ✨</div>';return}
+ entries.forEach(entry=>{
+  const article=document.createElement('article');article.className='diary-entry';
+  const top=document.createElement('div');top.className='diary-entry-top';const left=document.createElement('div');
+  const title=document.createElement('h3');title.textContent=entry.title+' · '+entry.mood;const time=document.createElement('time');time.textContent=entry.date;left.append(title,time);
+  const del=document.createElement('button');del.className='btn danger';del.type='button';del.textContent='Xóa';del.style.padding='7px 10px';del.addEventListener('click',()=>{if(confirm('Xóa ghi chép này?')){saveEntries(getEntries().filter(x=>x.id!==entry.id));renderDiary()}});
+  top.append(left,del);const body=document.createElement('p');body.textContent=entry.text;article.append(top,body);list.appendChild(article)
+ })
+}
+$('diaryForm').addEventListener('submit',e=>{
+ e.preventDefault();const title=$('diaryTitle').value.trim(),text=$('diaryText').value.trim();if(!title||!text)return;
+ const entries=getEntries();entries.unshift({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),title,text,mood:$('diaryMood').value,date:new Date().toLocaleString('vi-VN',{dateStyle:'medium',timeStyle:'short'})});
+ if(saveEntries(entries)){ $('diaryTitle').value='';$('diaryText').value='';renderDiary()}
+});
+$('clearDiary').addEventListener('click',()=>{if(getEntries().length&&confirm('Bạn có chắc muốn xóa toàn bộ nhật ký trên thiết bị này?')){saveEntries([]);renderDiary()}});
+$('exportDiary').addEventListener('click',()=>{
+ const entries=getEntries();if(!entries.length){alert('Chưa có nhật ký để xuất.');return}
+ const content='NHẬT KÝ GIAO THỪA 2027 — BDUY.DEV\n'+'='.repeat(38)+'\n\n'+entries.map(e=>`${e.title}\n${e.date} | ${e.mood}\n\n${e.text}\n\n${'-'.repeat(38)}`).join('\n\n');
+ const blob=new Blob([content],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nhat-ky-tet-2027.txt';a.click();URL.revokeObjectURL(url)
+});
+renderDiary();
+// Midnight celebration: runs only when local clock reaches the target moment.
+let fireworksFrame=0,fireworksActive=false,particles=[];
+function showCelebration(){ $('celebration').classList.add('show');startFireworks() }
+function hideCelebration(){ $('celebration').classList.remove('show');stopFireworks() }
+$('closeCelebration').addEventListener('click',hideCelebration);
+function startFireworks(){
+ const canvas=$('fireworks'),ctx=canvas.getContext('2d');canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);fireworksActive=true;particles=[];
+ function burst(){const x=Math.random()*innerWidth,y=Math.random()*innerHeight*.55+30,hue=Math.random()*50+5;for(let i=0;i<45;i++){const angle=Math.PI*2*i/45,speed=1+Math.random()*4;particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:50+Math.random()*30,hue,alpha:1})}}
+ let last=0;function frame(t){if(!fireworksActive)return;fireworksFrame=requestAnimationFrame(frame);if(t-last>700){burst();last=t}ctx.clearRect(0,0,innerWidth,innerHeight);particles=particles.filter(p=>p.life>0);for(const p of particles){p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.vx*=.99;p.life--;p.alpha=p.life/80;ctx.fillStyle=`hsla(${p.hue},100%,70%,${p.alpha})`;ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill()}}
+ frame(0)
+}
+function stopFireworks(){fireworksActive=false;cancelAnimationFrame(fireworksFrame)}
+window.addEventListener('resize',()=>{if(fireworksActive){stopFireworks();startFireworks()}});
+</script>
+</body>
+</html>
