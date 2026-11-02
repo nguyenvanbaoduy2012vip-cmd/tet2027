@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saptet.gt.tc/sitemap.xml
