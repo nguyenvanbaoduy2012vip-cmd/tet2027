@@ -308,5 +308,6 @@ $('closeCelebration').addEventListener('click',hideCelebration);
 function startFireworks(){const canvas=$('fireworks'),ctx=canvas.getContext('2d');canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);fireworksActive=true;particles=[];function burst(){const x=Math.random()*innerWidth,y=Math.random()*innerHeight*.55+30,hue=Math.random()*50+5;for(let i=0;i<45;i++){const angle=Math.PI*2*i/45,speed=1+Math.random()*4;particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:50+Math.random()*30,hue,alpha:1})}}let last=0;function frame(t){if(!fireworksActive)return;fireworksFrame=requestAnimationFrame(frame);if(t-last>700){burst();last=t}ctx.clearRect(0,0,innerWidth,innerHeight);particles=particles.filter(p=>p.life>0);for(const p of particles){p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.vx*=.99;p.life--;p.alpha=p.life/80;ctx.fillStyle=`hsla(${p.hue},100%,55%,${p.alpha})`;ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill()}}frame(0)}
 function stopFireworks(){fireworksActive=false;cancelAnimationFrame(fireworksFrame)}
 window.addEventListener('resize',()=>{if(fireworksActive){stopFireworks();startFireworks()}});
+</script>
 </body>
 </html>
